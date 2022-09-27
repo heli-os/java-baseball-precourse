@@ -1,9 +1,16 @@
-package baseball.domain;
+package baseball.domain.result;
 
-import baseball.domain.result.ResultNumbers;
+import baseball.game.BaseBallNumber;
+import org.assertj.core.util.Lists;
+import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -17,18 +24,22 @@ class ResultNumbersTest {
 
     @Test
     void 크기_3인_정답_숫자를_생성할_수_있다() {
-        ResultNumbers actual = new ResultNumbers(3, 1, 9);
+        ResultNumbers resultNumbers = new ResultNumbers(3, 1, 9);
 
-        assertThat(actual.metaData().totalSize()).isEqualTo(3);
+        ArrayList<BaseBallNumber> actual = Lists.newArrayList(resultNumbers.numbers());
+
+        assertThat(actual.size()).isEqualTo(3);
     }
 
-    @Test
-    void 정답_숫자_생성_시_메타데이터가_정상적으로_세팅된다() {
-        ResultNumbers actual = new ResultNumbers(3, 1, 9);
+    @ParameterizedTest
+    @CsvSource(value = {"1:1:1", "2:1:2", "3:1:3"}, delimiter = ':')
+    void 정답_숫자_생성_시_중복은_없다(int totalSize, int startInclusive, int endInclusive) {
+        ResultNumbers resultNumbers = new ResultNumbers(totalSize, startInclusive, endInclusive);
 
-        assertThat(actual.metaData().totalSize()).isEqualTo(3);
-        assertThat(actual.metaData().startInclusive()).isEqualTo(1);
-        assertThat(actual.metaData().endInclusive()).isEqualTo(9);
+        ArrayList<BaseBallNumber> actual = Lists.newArrayList(resultNumbers.numbers());
+        HashSet<BaseBallNumber> setValues = Sets.newHashSet(actual);
+
+        assertThat(actual).hasSameSizeAs(setValues);
     }
 
     @Test

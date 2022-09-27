@@ -1,9 +1,9 @@
 package baseball.domain.result;
 
+import baseball.game.BaseBallNumber;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author Heli
@@ -12,7 +12,6 @@ import java.util.Set;
 public class ResultNumbers {
 
     private final Set<ResultNumber> numbers = new HashSet<>();
-    private final MetaData metaData;
 
     public ResultNumbers(final int totalSize, final int startInclusive, final int endInclusive) {
         validateRange(totalSize, startInclusive, endInclusive);
@@ -21,11 +20,10 @@ public class ResultNumbers {
             ResultNumber resultNumber = new ResultNumber(pickedNumber);
             numbers.add(resultNumber);
         }
-        this.metaData = new MetaData(totalSize, startInclusive, endInclusive);
     }
 
-    public MetaData metaData() {
-        return metaData;
+    public List<BaseBallNumber> numbers() {
+        return new ArrayList<>(numbers);
     }
 
     private void validateRange(final int totalSize, final int startInclusive, final int endInclusive) {
@@ -37,27 +35,8 @@ public class ResultNumbers {
         }
     }
 
-    public static class MetaData {
-        private final int totalSize;
-        private final int startInclusive;
-        private final int endInclusive;
-
-        private MetaData(final int totalSize, final int startInclusive, final int endInclusive) {
-            this.totalSize = totalSize;
-            this.startInclusive = startInclusive;
-            this.endInclusive = endInclusive;
-        }
-
-        public int totalSize() {
-            return totalSize;
-        }
-
-        public int startInclusive() {
-            return startInclusive;
-        }
-
-        public int endInclusive() {
-            return endInclusive;
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(numbers);
     }
 }

@@ -1,10 +1,14 @@
 package baseball.domain.input;
 
+import baseball.game.BaseBallNumber;
+
+import java.util.Objects;
+
 /**
  * @author Heli
  * Created on 2022. 09. 28
  */
-public class StringAsPositiveInteger {
+public class StringAsPositiveInteger implements BaseBallNumber {
 
     private final int value;
 
@@ -14,6 +18,7 @@ public class StringAsPositiveInteger {
         this.value = number;
     }
 
+    @Override
     public int value() {
         return value;
     }
@@ -22,5 +27,18 @@ public class StringAsPositiveInteger {
         if (number <= 0) {
             throw new IllegalArgumentException(String.format("number must be greater than 0. [number=%s]", number));
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StringAsPositiveInteger that = (StringAsPositiveInteger) o;
+        return value == that.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }

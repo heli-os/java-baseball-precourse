@@ -1,7 +1,10 @@
 package baseball.domain.input;
 
+import baseball.game.BaseBallNumber;
+
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -23,8 +26,8 @@ public class InputNumbers {
         }
     }
 
-    public Iterator<StringAsPositiveInteger> numbers() {
-        return numbers.iterator();
+    public List<BaseBallNumber> numbers() {
+        return new ArrayList<>(numbers);
     }
 
     private void validateValueAsInteger(final String input) {

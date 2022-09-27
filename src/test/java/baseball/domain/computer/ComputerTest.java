@@ -1,8 +1,15 @@
 package baseball.domain.computer;
 
+import baseball.game.BaseBallNumber;
+import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+
+import java.time.temporal.ValueRange;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,18 +20,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class ComputerTest {
 
-    @Test
+    @RepeatedTest(10)
     void 컴퓨터의_정답은_1부터_9까지의_숫자로_이루어져있다() {
-        Computer actual = new Computer();
+        ValueRange valueRange = ValueRange.of(1, 9);
+        Computer computer = new Computer();
 
-        assertThat(actual.resultNumbers().metaData().startInclusive()).isEqualTo(1);
-        assertThat(actual.resultNumbers().metaData().endInclusive()).isEqualTo(9);
+        List<BaseBallNumber> actual = computer.resultNumbers().numbers();
+
+        actual.forEach(resultNumber ->
+                assertThat(valueRange.isValidValue(resultNumber.value())).isTrue()
+        );
     }
 
     @Test
     void 컴퓨터의_정답_길이는_3이다() {
-        Computer actual = new Computer();
+        Computer computer = new Computer();
 
-        assertThat(actual.resultNumbers().metaData().totalSize()).isEqualTo(3);
+        ArrayList<BaseBallNumber> actual = Lists.newArrayList(computer.resultNumbers().numbers());
+
+        assertThat(actual).hasSize(3);
     }
 }

@@ -1,5 +1,6 @@
 package baseball.domain.input;
 
+import baseball.game.BaseBallNumber;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -7,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,9 +24,9 @@ class InputNumbersTest {
     void 입력은_1부터_9까지의_숫자로_이루어져있다(String input) {
         InputNumbers inputNumbers = new InputNumbers(input);
 
-        Iterator<StringAsPositiveInteger> actual = inputNumbers.numbers();
+        List<BaseBallNumber> actual = inputNumbers.numbers();
 
-        actual.forEachRemaining((number) -> {
+        actual.forEach((number) -> {
             assertThat(number.value())
                     .isGreaterThanOrEqualTo(1)
                     .isLessThanOrEqualTo(9);
@@ -37,7 +38,7 @@ class InputNumbersTest {
     void 입력_길이는_3이다(String input) {
         InputNumbers inputNumbers = new InputNumbers(input);
 
-        ArrayList<StringAsPositiveInteger> actual = Lists.newArrayList(inputNumbers.numbers());
+        ArrayList<BaseBallNumber> actual = Lists.newArrayList(inputNumbers.numbers());
 
         assertThat(actual).hasSize(3);
     }
