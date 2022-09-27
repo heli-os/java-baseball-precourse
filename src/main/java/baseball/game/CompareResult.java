@@ -28,6 +28,10 @@ public class CompareResult {
         return new CompareResult(0, 0);
     }
 
+    public boolean isFinish() {
+        return this.strike == 3;
+    }
+
     private void validateGreaterThanOrEqualsZero(final int number) {
         if (number < 0) {
             throw new IllegalArgumentException(String.format("number must be greater than or equals 0. [number=%s]", number));

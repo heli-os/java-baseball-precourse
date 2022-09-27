@@ -13,16 +13,11 @@ public class Compare {
 
         CompareResult compareResult = CompareResult.empty();
         for (int i = 0; i < inputNumbers.size(); i++) {
-            compareResult = compareResult.add(compare(i, inputNumbers, resultNumbers));
+            CompareResult result = compare(i, inputNumbers, resultNumbers);
+            compareResult = compareResult.add(result);
         }
 
         return compareResult;
-    }
-
-    private void validateSameSize(final List<BaseBallNumber> inputNumbers, final List<BaseBallNumber> resultNumbers) {
-        if (inputNumbers.size() != resultNumbers.size()) {
-            throw new IllegalArgumentException("comparison lists must be have same size.");
-        }
     }
 
     private CompareResult compare(final int position, final List<BaseBallNumber> inputNumbers, final List<BaseBallNumber> resultNumbers) {
@@ -39,10 +34,16 @@ public class Compare {
     }
 
     private boolean isStrike(final BaseBallNumber inputNumber, final BaseBallNumber resultNumber) {
-        return inputNumber.equals(resultNumber);
+        return inputNumber.value() == resultNumber.value();
     }
 
     private boolean hasBall(final BaseBallNumber inputNumber, final List<BaseBallNumber> resultNumbers) {
         return resultNumbers.contains(inputNumber);
+    }
+
+    private void validateSameSize(final List<BaseBallNumber> inputNumbers, final List<BaseBallNumber> resultNumbers) {
+        if (inputNumbers.size() != resultNumbers.size()) {
+            throw new IllegalArgumentException("comparison lists must be have same size.");
+        }
     }
 }
