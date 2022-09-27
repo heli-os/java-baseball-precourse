@@ -1,6 +1,6 @@
 package baseball.domain.result;
 
-import baseball.game.BaseBallNumber;
+import baseball.domain.number.BaseBallNumber;
 
 import java.util.Objects;
 

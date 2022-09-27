@@ -1,6 +1,6 @@
 package baseball.domain.input;
 
-import baseball.game.BaseBallNumber;
+import baseball.domain.number.BaseBallNumber;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;

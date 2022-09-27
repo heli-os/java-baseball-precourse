@@ -1,5 +1,7 @@
 package baseball.game;
 
+import baseball.domain.number.BaseBallNumber;
+
 import java.util.List;
 
 /**

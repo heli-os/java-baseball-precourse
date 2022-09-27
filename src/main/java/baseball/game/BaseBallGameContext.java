@@ -4,6 +4,7 @@ import baseball.domain.command.BaseBallGameCommand;
 import baseball.domain.command.Playing;
 import baseball.domain.command.ReadyToStart;
 import baseball.domain.computer.Computer;
+import baseball.domain.number.BaseBallNumber;
 import baseball.domain.player.Player;
 import baseball.port.inbound.StandardInput;
 import baseball.port.outbound.StandardOutput;

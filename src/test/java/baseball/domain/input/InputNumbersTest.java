@@ -1,6 +1,6 @@
 package baseball.domain.input;
 
-import baseball.game.BaseBallNumber;
+import baseball.domain.number.BaseBallNumber;
 import org.assertj.core.util.Lists;
 import org.assertj.core.util.Strings;
 import org.junit.jupiter.api.DisplayNameGeneration;

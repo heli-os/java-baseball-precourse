@@ -1,4 +1,4 @@
-package baseball.game;
+package baseball.domain.number;
 
 /**
  * @author Heli

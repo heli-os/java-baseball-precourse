@@ -1,7 +1,7 @@
 package baseball.domain.command;
 
+import baseball.domain.number.BaseBallNumber;
 import baseball.game.BaseBallGameContext;
-import baseball.game.BaseBallNumber;
 import baseball.game.CompareResult;
 import baseball.port.outbound.StandardOutput;
 
