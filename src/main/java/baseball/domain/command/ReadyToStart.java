@@ -8,7 +8,7 @@ import baseball.game.BaseBallGameContext;
  */
 public class ReadyToStart implements BaseBallGameCommand {
     @Override
-    public BaseBallGameCommand command(BaseBallGameContext context) {
+    public BaseBallGameCommand command(final BaseBallGameContext context) {
         context.init();
         return new WaitForUserInputNumbers();
     }

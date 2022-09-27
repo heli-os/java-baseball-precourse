@@ -33,7 +33,7 @@ class ResultNumbersTest {
 
     @ParameterizedTest
     @CsvSource(value = {"1:1:1", "2:1:2", "3:1:3"}, delimiter = ':')
-    void 정답_숫자_생성_시_중복은_없다(int totalSize, int startInclusive, int endInclusive) {
+    void 정답_숫자_생성_시_중복은_없다(final int totalSize, final int startInclusive, final int endInclusive) {
         ResultNumbers resultNumbers = new ResultNumbers(totalSize, startInclusive, endInclusive);
 
         ArrayList<BaseBallNumber> actual = Lists.newArrayList(resultNumbers.numbers());

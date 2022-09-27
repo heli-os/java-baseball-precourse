@@ -74,7 +74,7 @@ class CompareTest {
 
         private final int number;
 
-        public FakeNumber(int number) {
+        public FakeNumber(final int number) {
             this.number = number;
         }
 
@@ -84,7 +84,7 @@ class CompareTest {
         }
 
         @Override
-        public boolean equals(Object o) {
+        public boolean equals(final Object o) {
 
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;

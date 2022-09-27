@@ -9,7 +9,7 @@ import baseball.port.outbound.StandardOutput;
  */
 public class Exit implements BaseBallGameCommand {
     @Override
-    public BaseBallGameCommand command(BaseBallGameContext context) {
+    public BaseBallGameCommand command(final BaseBallGameContext context) {
         StandardOutput.println("게임종료");
         return new Exit();
     }

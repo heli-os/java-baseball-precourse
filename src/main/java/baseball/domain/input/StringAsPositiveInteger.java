@@ -12,7 +12,7 @@ public class StringAsPositiveInteger implements BaseBallNumber {
 
     private final int value;
 
-    public StringAsPositiveInteger(String input) {
+    public StringAsPositiveInteger(final String input) {
         int number = Integer.parseInt(input);
         validatePositive(number);
         this.value = number;
@@ -30,7 +30,7 @@ public class StringAsPositiveInteger implements BaseBallNumber {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (!(o instanceof BaseBallNumber)) return false;
         BaseBallNumber that = (BaseBallNumber) o;

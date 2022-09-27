@@ -17,7 +17,7 @@ class StringAsPositiveIntegerTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"1", "2", "3"})
-    void 정수_형태의_String_타입_인풋으로_인스턴스를_만들_수_있다(String input) {
+    void 정수_형태의_String_타입_인풋으로_인스턴스를_만들_수_있다(final String input) {
         StringAsPositiveInteger actual = new StringAsPositiveInteger(input);
 
         assertThat(actual.value()).isEqualTo(Integer.parseInt(input));
@@ -25,13 +25,13 @@ class StringAsPositiveIntegerTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"a", "b", "c"})
-    void 문자_형태의_String_타입_인풋으로_인스턴스를_만들_수_없다(String input) {
+    void 문자_형태의_String_타입_인풋으로_인스턴스를_만들_수_없다(final String input) {
         assertThatThrownBy(() -> new StringAsPositiveInteger(input));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"-2", "-1", "0"})
-    void 양의_정수_만_받을_수_있다(String input) {
+    void 양의_정수_만_받을_수_있다(final String input) {
         assertThatThrownBy(() -> new StringAsPositiveInteger(input));
     }
 }

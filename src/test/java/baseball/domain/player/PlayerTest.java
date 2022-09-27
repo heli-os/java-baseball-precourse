@@ -16,7 +16,7 @@ class PlayerTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"123", "456", "789"})
-    void 플레이어는_입력_받은_값_으로_InputNumbers_를_생성한다(String input) {
+    void 플레이어는_입력_받은_값_으로_InputNumbers_를_생성한다(final String input) {
         Player player = new Player(input);
 
         InputNumbers inputNumbers = player.inputNumbers();

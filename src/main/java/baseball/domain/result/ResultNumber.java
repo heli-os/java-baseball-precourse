@@ -12,7 +12,7 @@ public class ResultNumber implements BaseBallNumber {
 
     private final int number;
 
-    public ResultNumber(int number) {
+    public ResultNumber(final int number) {
         this.number = number;
     }
 
@@ -22,7 +22,7 @@ public class ResultNumber implements BaseBallNumber {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (!(o instanceof BaseBallNumber)) return false;
         BaseBallNumber that = (BaseBallNumber) o;

@@ -22,7 +22,7 @@ class InputNumbersTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"123", "456", "789"})
-    void 입력은_1부터_9까지의_숫자로_이루어져있다(String input) {
+    void 입력은_1부터_9까지의_숫자로_이루어져있다(final String input) {
         InputNumbers inputNumbers = new InputNumbers(input);
 
         List<BaseBallNumber> actual = inputNumbers.numbers();
@@ -36,7 +36,7 @@ class InputNumbersTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"123", "456", "789"})
-    void 입력_길이는_3이다(String input) {
+    void 입력_길이는_3이다(final String input) {
         InputNumbers inputNumbers = new InputNumbers(input);
 
         ArrayList<BaseBallNumber> actual = Lists.newArrayList(inputNumbers.numbers());
