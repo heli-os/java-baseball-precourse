@@ -3,7 +3,7 @@ package baseball.domain.input;
 import baseball.game.BaseBallNumber;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -15,7 +15,7 @@ public class InputNumbers {
 
     private static final int INPUT_SIZE = 3;
 
-    private final Set<StringAsPositiveInteger> numbers = new HashSet<>();
+    private final Set<StringAsPositiveInteger> numbers = new LinkedHashSet<>();
 
     public InputNumbers(final String input) {
         validateValueAsInteger(input);

@@ -32,13 +32,18 @@ public class StringAsPositiveInteger implements BaseBallNumber {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StringAsPositiveInteger that = (StringAsPositiveInteger) o;
-        return value == that.value;
+        if (!(o instanceof BaseBallNumber)) return false;
+        BaseBallNumber that = (BaseBallNumber) o;
+        return value() == that.value();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value);
+        return Objects.hash(value());
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value());
     }
 }

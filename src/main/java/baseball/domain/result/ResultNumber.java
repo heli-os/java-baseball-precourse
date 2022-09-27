@@ -24,13 +24,18 @@ public class ResultNumber implements BaseBallNumber {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ResultNumber that = (ResultNumber) o;
-        return number == that.number;
+        if (!(o instanceof BaseBallNumber)) return false;
+        BaseBallNumber that = (BaseBallNumber) o;
+        return value() == that.value();
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(number);
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value());
     }
 }

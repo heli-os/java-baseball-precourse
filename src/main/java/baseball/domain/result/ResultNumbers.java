@@ -3,7 +3,10 @@ package baseball.domain.result;
 import baseball.game.BaseBallNumber;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Heli
@@ -11,7 +14,7 @@ import java.util.*;
  */
 public class ResultNumbers {
 
-    private final Set<ResultNumber> numbers = new HashSet<>();
+    private final Set<ResultNumber> numbers = new LinkedHashSet<>();
 
     public ResultNumbers(final int totalSize, final int startInclusive, final int endInclusive) {
         validateRange(totalSize, startInclusive, endInclusive);
@@ -33,10 +36,5 @@ public class ResultNumbers {
         if (totalSize > endInclusive - startInclusive + 1) {
             throw new IllegalArgumentException("totalSize cannot be greater than rangeSize(endInclusive - startInclusive + 1)");
         }
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(numbers);
     }
 }

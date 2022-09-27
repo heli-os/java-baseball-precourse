@@ -2,6 +2,7 @@ package baseball.domain.input;
 
 import baseball.game.BaseBallNumber;
 import org.assertj.core.util.Lists;
+import org.assertj.core.util.Strings;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -41,5 +42,15 @@ class InputNumbersTest {
         ArrayList<BaseBallNumber> actual = Lists.newArrayList(inputNumbers.numbers());
 
         assertThat(actual).hasSize(3);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"312", "529", "293", "195"})
+    void 입력한_순서를_보장한다(String input) {
+        InputNumbers inputNumbers = new InputNumbers(input);
+
+        List<BaseBallNumber> actual = inputNumbers.numbers();
+
+        assertThat(Strings.join(actual).with("")).isEqualTo(input);
     }
 }
