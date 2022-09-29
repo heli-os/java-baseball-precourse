@@ -1,4 +1,4 @@
-package baseball.domain.command;
+package baseball.domain.scene;
 
 import baseball.game.BaseBallGameContext;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -18,7 +18,7 @@ class ExitTest {
 
     @Test
     void command_수행_시_게임_종료_상태_반환() {
-        BaseBallGameCommand actual = new Exit().command(context);
+        BaseBallGameScene actual = new Exit().command(context);
 
         assertThat(actual.getClass()).isEqualTo(Exit.class);
     }

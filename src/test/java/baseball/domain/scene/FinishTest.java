@@ -1,4 +1,4 @@
-package baseball.domain.command;
+package baseball.domain.scene;
 
 import baseball.game.BaseBallGameContext;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -24,7 +24,7 @@ class FinishTest {
         final byte[] buf = String.join("\n", "1").getBytes();
         System.setIn(new ByteArrayInputStream(buf));
 
-        BaseBallGameCommand actual = new Finish().command(context);
+        BaseBallGameScene actual = new Finish().command(context);
 
         assertThat(actual.getClass()).isEqualTo(ReadyToStart.class);
     }
@@ -34,7 +34,7 @@ class FinishTest {
         final byte[] buf = String.join("\n", "2").getBytes();
         System.setIn(new ByteArrayInputStream(buf));
 
-        BaseBallGameCommand actual = new Finish().command(context);
+        BaseBallGameScene actual = new Finish().command(context);
 
         assertThat(actual.getClass()).isEqualTo(Exit.class);
     }

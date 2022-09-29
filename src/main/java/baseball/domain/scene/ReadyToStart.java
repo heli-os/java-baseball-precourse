@@ -1,4 +1,4 @@
-package baseball.domain.command;
+package baseball.domain.scene;
 
 import baseball.game.BaseBallGameContext;
 
@@ -6,9 +6,9 @@ import baseball.game.BaseBallGameContext;
  * @author Heli
  * Created on 2022. 09. 28
  */
-public class ReadyToStart implements BaseBallGameCommand {
+public class ReadyToStart implements BaseBallGameScene {
     @Override
-    public BaseBallGameCommand command(final BaseBallGameContext context) {
+    public BaseBallGameScene command(final BaseBallGameContext context) {
         context.init();
         return new WaitForUserInputNumbers();
     }

@@ -1,4 +1,4 @@
-package baseball.domain.command;
+package baseball.domain.scene;
 
 import baseball.game.BaseBallGameContext;
 import baseball.port.outbound.StandardOutput;
@@ -7,9 +7,9 @@ import baseball.port.outbound.StandardOutput;
  * @author Heli
  * Created on 2022. 09. 28
  */
-public class Exit implements BaseBallGameCommand {
+public class Exit implements BaseBallGameScene {
     @Override
-    public BaseBallGameCommand command(final BaseBallGameContext context) {
+    public BaseBallGameScene command(final BaseBallGameContext context) {
         StandardOutput.println("게임종료");
         return new Exit();
     }

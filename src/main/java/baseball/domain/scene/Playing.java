@@ -1,4 +1,4 @@
-package baseball.domain.command;
+package baseball.domain.scene;
 
 import baseball.domain.number.BaseBallNumber;
 import baseball.game.BaseBallGameContext;
@@ -11,9 +11,9 @@ import java.util.List;
  * @author Heli
  * Created on 2022. 09. 28
  */
-public class Playing implements BaseBallGameCommand {
+public class Playing implements BaseBallGameScene {
     @Override
-    public BaseBallGameCommand command(final BaseBallGameContext context) {
+    public BaseBallGameScene command(final BaseBallGameContext context) {
         List<BaseBallNumber> inputNumbers = context.playerInputNumbers();
         List<BaseBallNumber> resultNumbers = context.computerResultNumbers();
 
