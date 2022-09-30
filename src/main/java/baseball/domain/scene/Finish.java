@@ -14,7 +14,7 @@ public class Finish implements BaseBallGameScene {
     private static final String EXIT_GAME_FLAG = "2";
 
     @Override
-    public BaseBallGameScene command(final BaseBallGameContext context) {
+    public BaseBallGameScene next(final BaseBallGameContext context) {
         StandardOutput.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         String input = StandardInput.readLine();
         if (NEW_GAME_FLAG.equals(input)) {

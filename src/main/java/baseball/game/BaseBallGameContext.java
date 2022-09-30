@@ -18,17 +18,17 @@ import java.util.List;
 public class BaseBallGameContext {
 
     private final Compare compare = new Compare();
-    private BaseBallGameScene command = new ReadyToStart();
+    private BaseBallGameScene scene = new ReadyToStart();
     private Computer computer;
     private Player player;
 
-    public void command() {
-        this.command = this.command.command(this);
+    public void play() {
+        this.scene = this.scene.next(this);
     }
 
     public void init() {
         this.computer = new Computer();
-        this.command = new Playing();
+        this.scene = new Playing();
     }
 
     public void userInput() {
@@ -49,6 +49,6 @@ public class BaseBallGameContext {
     }
 
     public boolean playable() {
-        return this.command.playable();
+        return this.scene.playable();
     }
 }

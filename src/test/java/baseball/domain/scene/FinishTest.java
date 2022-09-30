@@ -24,7 +24,7 @@ class FinishTest {
         final byte[] buf = String.join("\n", "1").getBytes();
         System.setIn(new ByteArrayInputStream(buf));
 
-        BaseBallGameScene actual = new Finish().command(context);
+        BaseBallGameScene actual = new Finish().next(context);
 
         assertThat(actual.getClass()).isEqualTo(ReadyToStart.class);
     }
@@ -34,7 +34,7 @@ class FinishTest {
         final byte[] buf = String.join("\n", "2").getBytes();
         System.setIn(new ByteArrayInputStream(buf));
 
-        BaseBallGameScene actual = new Finish().command(context);
+        BaseBallGameScene actual = new Finish().next(context);
 
         assertThat(actual.getClass()).isEqualTo(Exit.class);
     }
@@ -44,7 +44,7 @@ class FinishTest {
         final byte[] buf = String.join("\n", "q").getBytes();
         System.setIn(new ByteArrayInputStream(buf));
 
-        assertThatThrownBy(() -> new Finish().command(context))
+        assertThatThrownBy(() -> new Finish().next(context))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("게임종료");
     }

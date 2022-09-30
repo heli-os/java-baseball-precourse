@@ -8,7 +8,7 @@ import baseball.game.BaseBallGameContext;
  */
 public interface BaseBallGameScene {
 
-    BaseBallGameScene command(final BaseBallGameContext context);
+    BaseBallGameScene next(final BaseBallGameContext context);
 
     boolean playable();
 }

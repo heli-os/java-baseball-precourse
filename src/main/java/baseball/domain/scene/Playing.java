@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Playing implements BaseBallGameScene {
     @Override
-    public BaseBallGameScene command(final BaseBallGameContext context) {
+    public BaseBallGameScene next(final BaseBallGameContext context) {
         List<BaseBallNumber> inputNumbers = context.playerInputNumbers();
         List<BaseBallNumber> resultNumbers = context.computerResultNumbers();
 
