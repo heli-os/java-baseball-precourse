@@ -10,7 +10,7 @@ public class BaseBallGame {
 
     public void start() {
         while (baseBallGameContext.playable()) {
-            baseBallGameContext.command();
+            baseBallGameContext.play();
         }
     }
 }

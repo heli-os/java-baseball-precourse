@@ -1,4 +1,4 @@
-package baseball.domain.command;
+package baseball.domain.scene;
 
 import baseball.game.BaseBallGameContext;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,9 +24,9 @@ class WaitForUserInputNumbersTest {
     }
 
     @Test
-    void command_수행_후_게임_진행_상태로_전환된다() {
+    void next_수행_후_게임_진행_상태로_전환된다() {
         BaseBallGameContext context = new BaseBallGameContext();
-        BaseBallGameCommand actual = new WaitForUserInputNumbers().command(context);
+        BaseBallGameScene actual = new WaitForUserInputNumbers().next(context);
 
         assertThat(actual.getClass()).isEqualTo(Playing.class);
     }

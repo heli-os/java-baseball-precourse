@@ -1,4 +1,4 @@
-package baseball.domain.command;
+package baseball.domain.scene;
 
 import baseball.game.BaseBallGameContext;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -15,9 +15,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ReadyToStartTest {
 
     @Test
-    void command_수행_후_게임_플레이어_입력_상태로_전환된다() {
+    void next_수행_후_게임_플레이어_입력_상태로_전환된다() {
         BaseBallGameContext context = new BaseBallGameContext();
-        BaseBallGameCommand actual = new ReadyToStart().command(context);
+        BaseBallGameScene actual = new ReadyToStart().next(context);
 
         assertThat(actual.getClass()).isEqualTo(WaitForUserInputNumbers.class);
     }

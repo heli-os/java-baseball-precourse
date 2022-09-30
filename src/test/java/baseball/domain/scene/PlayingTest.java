@@ -1,4 +1,4 @@
-package baseball.domain.command;
+package baseball.domain.scene;
 
 import baseball.game.BaseBallGameContext;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -22,7 +22,7 @@ import static org.mockito.Mockito.mockStatic;
 class PlayingTest {
 
     private final BaseBallGameContext context = new BaseBallGameContext();
-    private BaseBallGameCommand command = new ReadyToStart();
+    private BaseBallGameScene scene = new ReadyToStart();
 
     @BeforeEach
     void init() {
@@ -32,9 +32,9 @@ class PlayingTest {
 
     @Test
     void 숫자를_모두_맞히지_못하였다면_게임_플레이어_입력_상태로_전환된다() {
-        command = command.command(context); // ReadyToStart -> WaitForUserInputNumbers
-        command = command.command(context); // WaitForUserInputNumbers -> Playing
-        BaseBallGameCommand actual = command.command(context);
+        scene = scene.next(context); // ReadyToStart -> WaitForUserInputNumbers
+        scene = scene.next(context); // WaitForUserInputNumbers -> Playing
+        BaseBallGameScene actual = scene.next(context);
 
         assertThat(actual.getClass()).isEqualTo(WaitForUserInputNumbers.class);
     }
@@ -45,9 +45,9 @@ class PlayingTest {
             mock.when(
                     () -> Randoms.pickNumberInRange(anyInt(), anyInt())
             ).thenReturn(1, 1, 2, 3);
-            command = command.command(context); // ReadyToStart -> WaitForUserInputNumbers
-            command = command.command(context); // WaitForUserInputNumbers -> Playing
-            BaseBallGameCommand actual = command.command(context);
+            scene = scene.next(context); // ReadyToStart -> WaitForUserInputNumbers
+            scene = scene.next(context); // WaitForUserInputNumbers -> Playing
+            BaseBallGameScene actual = scene.next(context);
             assertThat(actual.getClass()).isEqualTo(Finish.class);
         }
     }
