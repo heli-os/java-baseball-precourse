@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class BaseBallGameContext {
 
-    public final Compare compare = new Compare();
+    private final Compare compare = new Compare();
     private BaseBallGameScene command = new ReadyToStart();
     private Computer computer;
     private Player player;
@@ -34,6 +34,10 @@ public class BaseBallGameContext {
     public void userInput() {
         StandardOutput.print("숫자를 입력해주세요: ");
         this.player = new Player(StandardInput.readLine());
+    }
+
+    public CompareResult compare(final List<BaseBallNumber> inputNumbers, final List<BaseBallNumber> resultNumbers) {
+        return compare.compare(inputNumbers, resultNumbers);
     }
 
     public List<BaseBallNumber> playerInputNumbers() {

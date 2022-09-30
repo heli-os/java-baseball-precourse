@@ -17,7 +17,7 @@ public class Playing implements BaseBallGameScene {
         List<BaseBallNumber> inputNumbers = context.playerInputNumbers();
         List<BaseBallNumber> resultNumbers = context.computerResultNumbers();
 
-        CompareResult compareResult = context.compare.compare(inputNumbers, resultNumbers);
+        CompareResult compareResult = context.compare(inputNumbers, resultNumbers);
         StandardOutput.println(compareResult);
 
         if (compareResult.isFinish()) {
