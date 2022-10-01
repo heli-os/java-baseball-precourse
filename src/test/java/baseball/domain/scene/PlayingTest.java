@@ -32,9 +32,9 @@ class PlayingTest {
 
     @Test
     void 숫자를_모두_맞히지_못하였다면_게임_플레이어_입력_상태로_전환된다() {
-        scene = scene.next(context); // ReadyToStart -> WaitForUserInputNumbers
-        scene = scene.next(context); // WaitForUserInputNumbers -> Playing
-        BaseBallGameScene actual = scene.next(context);
+        scene = scene.play(context); // ReadyToStart -> WaitForUserInputNumbers
+        scene = scene.play(context); // WaitForUserInputNumbers -> Playing
+        BaseBallGameScene actual = scene.play(context);
 
         assertThat(actual.getClass()).isEqualTo(WaitForUserInputNumbers.class);
     }
@@ -45,9 +45,9 @@ class PlayingTest {
             mock.when(
                     () -> Randoms.pickNumberInRange(anyInt(), anyInt())
             ).thenReturn(1, 1, 2, 3);
-            scene = scene.next(context); // ReadyToStart -> WaitForUserInputNumbers
-            scene = scene.next(context); // WaitForUserInputNumbers -> Playing
-            BaseBallGameScene actual = scene.next(context);
+            scene = scene.play(context); // ReadyToStart -> WaitForUserInputNumbers
+            scene = scene.play(context); // WaitForUserInputNumbers -> Playing
+            BaseBallGameScene actual = scene.play(context);
             assertThat(actual.getClass()).isEqualTo(Finish.class);
         }
     }

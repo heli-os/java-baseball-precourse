@@ -24,9 +24,9 @@ class WaitForUserInputNumbersTest {
     }
 
     @Test
-    void next_수행_후_게임_진행_상태로_전환된다() {
+    void play_수행_후_게임_진행_상태로_전환된다() {
         BaseBallGameContext context = new BaseBallGameContext();
-        BaseBallGameScene actual = new WaitForUserInputNumbers().next(context);
+        BaseBallGameScene actual = new WaitForUserInputNumbers().play(context);
 
         assertThat(actual.getClass()).isEqualTo(Playing.class);
     }

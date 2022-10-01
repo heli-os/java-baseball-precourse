@@ -8,7 +8,7 @@ import baseball.game.BaseBallGameContext;
  */
 public class WaitForUserInputNumbers implements BaseBallGameScene {
     @Override
-    public BaseBallGameScene next(final BaseBallGameContext context) {
+    public BaseBallGameScene play(final BaseBallGameContext context) {
         context.userInput();
         return new Playing();
     }

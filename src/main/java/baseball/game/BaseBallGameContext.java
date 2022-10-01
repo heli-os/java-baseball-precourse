@@ -23,7 +23,7 @@ public class BaseBallGameContext {
     private Player player;
 
     public void play() {
-        this.scene = this.scene.next(this);
+        this.scene = this.scene.play(this);
     }
 
     public void init() {

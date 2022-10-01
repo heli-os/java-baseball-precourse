@@ -15,9 +15,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ReadyToStartTest {
 
     @Test
-    void next_수행_후_게임_플레이어_입력_상태로_전환된다() {
+    void play_수행_후_게임_플레이어_입력_상태로_전환된다() {
         BaseBallGameContext context = new BaseBallGameContext();
-        BaseBallGameScene actual = new ReadyToStart().next(context);
+        BaseBallGameScene actual = new ReadyToStart().play(context);
 
         assertThat(actual.getClass()).isEqualTo(WaitForUserInputNumbers.class);
     }
